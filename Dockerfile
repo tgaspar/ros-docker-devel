@@ -1,4 +1,4 @@
-FROM osrf/ros:kinetic-desktop
+FROM ros:kinetic
 
 # Install pip
 RUN apt update && apt install -y \
