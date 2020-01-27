@@ -15,7 +15,7 @@ RUN pip install catkin_tools
 # Initialize the catkin workspace
 WORKDIR /ros_ws/src
 WORKDIR /ros_ws
-RUN /bin/bash -c "source /opt/ros/$ROS_DISTRO/setup.bash && catkin_make"
+RUN /bin/bash -c "source /opt/ros/$ROS_DISTRO/setup.bash && catkin build"
 # RUN /opt/ros/$ROS_DISTRO/bin/catkin_make
 RUN /bin/bash -c "source devel/setup.bash"
 
