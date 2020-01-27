@@ -1,4 +1,4 @@
-FROM osrf/ros:kinetic-desktop
+FROM ros:kinetic
 
 # Install pip
 RUN apt update && apt install -y python-pip
@@ -43,7 +43,7 @@ WORKDIR /ros_ws
 RUN /bin/bash -c "source /opt/ros/$ROS_DISTRO/setup.bash && catkin_make"
 # RUN /opt/ros/$ROS_DISTRO/bin/catkin_make
 RUN /bin/bash -c "source devel/setup.bash"
-
+ 
 # Clear apt cache.
 RUN apt clean
 
