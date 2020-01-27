@@ -24,6 +24,3 @@ RUN apt clean
 
 # Set the workspace variable
 ENV ROS_WORKSPACE=/ros_ws
-
-# Copy the entrypoint script
-ENTRYPOINT ["/ros_entrypoint.sh"]
