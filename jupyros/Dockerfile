@@ -43,6 +43,7 @@ WORKDIR /ros_ws
 RUN /bin/bash -c "source /opt/ros/$ROS_DISTRO/setup.bash && catkin_make"
 # RUN /opt/ros/$ROS_DISTRO/bin/catkin_make
 RUN /bin/bash -c "source devel/setup.bash"
+RUN pip install RISE
  
 # Clear apt cache.
 RUN apt clean

@@ -1,0 +1,35 @@
+version: '2'
+
+networks:
+  ros:
+    driver: bridge
+
+services:
+  master:
+    image: ros:kinetic
+    command: roscore
+    environment:
+      - "ROS_HOSTNAME=master"
+    networks:
+      - ros
+    restart: always
+
+  jupyros:
+    image: ros:jupyros
+    depends_on:
+      - master
+    environment:
+      - "ROS_MASTER_URI=http://master:11311"
+      - "ROS_HOSTNAME=jupyros"
+    networks:
+      - ros
+    ports: 
+        - "9090:9090"
+        - "8888:8888"
+        - "3000:3000"
+        - "8000:8000"
+    restart: always
+    volumes: 
+        - "./notebooks:/ros_ws/src/notebooks"
+
+    # jupyter nbconvert src/notebooks/slides.ipynb --to slides --post serve
